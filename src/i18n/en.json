@@ -1,0 +1,15 @@
+{
+  "app.title": "NexusAI",
+  "app.subtitle": "AI Assistant",
+  "chat.placeholder": "Type your message...",
+  "chat.send": "Send",
+  "chat.welcome.title": "Hello! How can I help?",
+  "chat.welcome.subtitle": "I'm an AI assistant ready to answer your questions.",
+  "chat.loading": "Thinking...",
+  "chat.error": "An error occurred. Please try again.",
+  "chat.error.empty": "Please type a message.",
+  "language.label": "Language",
+  "language.pt-BR": "Português",
+  "language.en": "English",
+  "language.fr": "Français"
+}
