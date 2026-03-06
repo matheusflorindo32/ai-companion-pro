@@ -11,5 +11,11 @@
   "language.label": "Language",
   "language.pt-BR": "Português",
   "language.en": "English",
-  "language.fr": "Français"
+  "language.fr": "Français",
+  "sidebar.newChat": "New chat",
+  "sidebar.history": "History",
+  "sidebar.today": "Today",
+  "sidebar.previous": "Previous",
+  "sidebar.deleteConfirm": "Delete conversation?",
+  "sidebar.noHistory": "No conversations yet"
 }

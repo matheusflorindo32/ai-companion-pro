@@ -11,5 +11,11 @@
   "language.label": "Idioma",
   "language.pt-BR": "Português",
   "language.en": "English",
-  "language.fr": "Français"
+  "language.fr": "Français",
+  "sidebar.newChat": "Nova conversa",
+  "sidebar.history": "Histórico",
+  "sidebar.today": "Hoje",
+  "sidebar.previous": "Anteriores",
+  "sidebar.deleteConfirm": "Excluir conversa?",
+  "sidebar.noHistory": "Nenhuma conversa ainda"
 }
