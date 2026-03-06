@@ -1,73 +1,143 @@
-# Welcome to your Lovable project
+# 🤖 NexusAI — Assistente de IA Multilíngue
 
-## Project info
+<p align="center">
+  <strong>Uma aplicação full-stack moderna estilo ChatGPT construída com React e Lovable Cloud</strong>
+</p>
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=flat-square&logo=tailwindcss" />
+  <img src="https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991?style=flat-square&logo=openai" />
+  <img src="https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite" />
+</p>
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📖 Descrição
 
-**Use Lovable**
+**NexusAI** é uma aplicação de chat com inteligência artificial que replica a experiência do ChatGPT com uma interface premium, moderna e multilíngue. O projeto foi desenvolvido como desafio educacional da DIO, demonstrando integração full-stack com a API da OpenAI.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 👤 Autor
 
-**Use your preferred IDE**
+**Matheus Florindo de Deus**  
+🔬 **TROPA CIENTÍFICA** — Núcleo Tático
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Funcionalidades
 
-Follow these steps:
+- 💬 **Chat com IA** — Converse com GPT-4o-mini em tempo real
+- 🌐 **Multilíngue** — Português (BR), English, Français
+- 📚 **Histórico de conversas** — Sidebar com gerenciamento de múltiplas conversas
+- 📝 **Markdown** — Respostas renderizadas com formatação rica
+- ⚡ **Indicador de carregamento** — Animação elegante enquanto a IA processa
+- 🎨 **Dark mode** — Interface escura premium por padrão
+- 📱 **Responsivo** — Funciona em desktop e mobile
+- 🔒 **Seguro** — Chave da API nunca exposta no frontend
+
+---
+
+## 🛠️ Stack Tecnológica
+
+| Camada | Tecnologia |
+|--------|-----------|
+| **Frontend** | React 18, TypeScript, Tailwind CSS, Vite |
+| **UI** | Shadcn/UI, Lucide Icons, react-markdown |
+| **Backend** | Lovable Cloud (Edge Functions) |
+| **IA** | OpenAI API (GPT-4o-mini) |
+| **i18n** | Sistema próprio de traduções (JSON) |
+
+---
+
+## 🏗️ Arquitetura
+
+```
+src/
+├── components/
+│   ├── ChatHeader.tsx        # Cabeçalho com logo e seletor de idioma
+│   ├── ChatPanel.tsx         # Painel de chat com mensagens
+│   ├── ChatSidebar.tsx       # Sidebar com histórico de conversas
+│   ├── InputBox.tsx          # Campo de input com botão enviar
+│   ├── LanguageSelector.tsx  # Seletor de idioma
+│   ├── LoadingIndicator.tsx  # Indicador de carregamento animado
+│   ├── Message.tsx           # Bolha de mensagem (user/assistant)
+│   └── WelcomeScreen.tsx     # Tela de boas-vindas
+├── contexts/
+│   └── ChatContext.tsx       # Context para estado compartilhado
+├── hooks/
+│   ├── useChat.ts            # Hook principal do chat
+│   ├── useConversations.ts   # Gerenciamento de conversas
+│   └── useI18n.ts            # Hook de internacionalização
+├── i18n/
+│   ├── index.ts              # Sistema i18n
+│   ├── pt-BR.json            # Traduções Português
+│   ├── en.json               # Traduções English
+│   └── fr.json               # Traduções Français
+└── pages/
+    └── Index.tsx              # Página principal
+
+supabase/functions/
+└── chat/
+    └── index.ts              # Edge function para proxy OpenAI
+```
+
+---
+
+## ⚙️ Como Executar
+
+### Pré-requisitos
+
+- Conta na [Lovable](https://lovable.dev)
+- Chave de API da [OpenAI](https://platform.openai.com/api-keys)
+
+### Configuração
+
+1. **Clone o repositório** no Lovable ou faça remix do projeto
+2. **Adicione a chave da OpenAI** nas configurações de Secrets do Lovable Cloud
+3. **Pronto!** A aplicação já está rodando
+
+### Desenvolvimento local
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🔑 Configuração da API Key
 
-**Use GitHub Codespaces**
+A chave da OpenAI é armazenada de forma segura como secret no Lovable Cloud e acessada apenas pela edge function no servidor. Nunca é exposta no código frontend.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📸 Screenshots
 
-This project is built with:
+> Screenshots podem ser adicionados aqui após o deploy.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 🤝 Contribuição
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas alterações (`git commit -m 'feat: adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📄 Licença
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Este projeto está sob a licença MIT.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+<p align="center">
+  Feito com ❤️ por <strong>Matheus Florindo de Deus</strong> — TROPA CIENTÍFICA 🔬 Núcleo Tático
+</p>
