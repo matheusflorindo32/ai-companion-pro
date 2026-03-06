@@ -1,6 +1,7 @@
 import { Bot, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { cn } from '@/lib/utils';
+import CodeBlock from './CodeBlock';
 
 export interface ChatMessage {
   id: string;
