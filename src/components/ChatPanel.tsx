@@ -4,7 +4,7 @@ import LoadingIndicator from './LoadingIndicator';
 import WelcomeScreen from './WelcomeScreen';
 import ChatHeader from './ChatHeader';
 import { SidebarTrigger } from '@/components/ui/sidebar';
-import useChat from '@/hooks/useChat';
+import { useChatContext } from '@/contexts/ChatContext';
 
 const ChatPanel = () => {
   const {
@@ -15,7 +15,7 @@ const ChatPanel = () => {
     isLoading,
     messagesEndRef,
     handleSend,
-  } = useChat();
+  } = useChatContext();
 
   return (
     <div className="flex flex-col h-screen max-h-screen flex-1">

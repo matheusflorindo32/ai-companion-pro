@@ -1,6 +1,6 @@
 import { MessageSquare, Plus, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Conversation } from '@/hooks/useConversations';
+import { useChatContext } from '@/contexts/ChatContext';
 import {
   Sidebar,
   SidebarContent,
@@ -14,16 +14,8 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 
-interface ChatSidebarProps {
-  conversations: Conversation[];
-  activeId: string | null;
-  onSelect: (id: string) => void;
-  onNew: () => void;
-  onDelete: (id: string) => void;
-  t: (key: string) => string;
-}
-
-const ChatSidebar = ({ conversations, activeId, onSelect, onNew, onDelete, t }: ChatSidebarProps) => {
+const ChatSidebar = () => {
+  const { conversations, activeId, setActiveConversation, deleteConversation, startNewChat, t } = useChatContext();
   const { state } = useSidebar();
   const collapsed = state === 'collapsed';
 
@@ -33,10 +25,10 @@ const ChatSidebar = ({ conversations, activeId, onSelect, onNew, onDelete, t }: 
   const todayConversations = conversations.filter((c) => new Date(c.createdAt) >= today);
   const previousConversations = conversations.filter((c) => new Date(c.createdAt) < today);
 
-  const renderItem = (conv: Conversation) => (
+  const renderItem = (conv: { id: string; title: string }) => (
     <SidebarMenuItem key={conv.id}>
       <SidebarMenuButton
-        onClick={() => onSelect(conv.id)}
+        onClick={() => setActiveConversation(conv.id)}
         className={cn(
           'group justify-between',
           conv.id === activeId && 'bg-sidebar-accent text-sidebar-accent-foreground'
@@ -52,7 +44,7 @@ const ChatSidebar = ({ conversations, activeId, onSelect, onNew, onDelete, t }: 
           <button
             onClick={(e) => {
               e.stopPropagation();
-              onDelete(conv.id);
+              deleteConversation(conv.id);
             }}
             className="opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded hover:bg-destructive/20 hover:text-destructive"
             aria-label="Delete"
@@ -68,7 +60,7 @@ const ChatSidebar = ({ conversations, activeId, onSelect, onNew, onDelete, t }: 
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarHeader className="p-3">
         <button
-          onClick={onNew}
+          onClick={startNewChat}
           className={cn(
             'flex items-center gap-2 w-full rounded-lg border border-sidebar-border px-3 py-2.5 text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent transition-colors',
             collapsed && 'justify-center px-2'

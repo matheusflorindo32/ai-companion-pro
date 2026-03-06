@@ -2,14 +2,10 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useI18n } from '@/hooks/useI18n';
 import { useConversations } from '@/hooks/useConversations';
-import ChatHeader from './ChatHeader';
-import Message, { ChatMessage } from './Message';
-import InputBox from './InputBox';
-import LoadingIndicator from './LoadingIndicator';
-import WelcomeScreen from './WelcomeScreen';
+import { ChatMessage } from '@/components/Message';
 import { toast } from 'sonner';
 
-const Chat = () => {
+const useChat = () => {
   const { locale, setLocale, t } = useI18n();
   const {
     activeConversation,
@@ -91,4 +87,4 @@ const Chat = () => {
   };
 };
 
-export default Chat;
+export default useChat;
