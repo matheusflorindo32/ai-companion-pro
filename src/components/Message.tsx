@@ -42,7 +42,23 @@ const Message = ({ message }: MessageProps) => {
           </p>
         ) : (
           <div className="prose prose-invert prose-sm max-w-none text-chat-ai-foreground prose-headings:text-foreground prose-strong:text-foreground prose-code:text-primary prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:marker:text-muted-foreground">
-            <ReactMarkdown>{message.content}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                code({ className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  const codeString = String(children).replace(/\n$/, '');
+                  if (match) {
+                    return <CodeBlock language={match[1]}>{codeString}</CodeBlock>;
+                  }
+                  return <code className={className} {...props}>{children}</code>;
+                },
+                pre({ children }) {
+                  return <>{children}</>;
+                },
+              }}
+            >
+              {message.content}
+            </ReactMarkdown>
           </div>
         )}
       </div>
